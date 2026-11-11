@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OrderLine | Takeaway call answering for restaurants | Underctrl</title>
+<meta name="description" content="OrderLine gives your restaurant a dedicated person who answers every call and takes every takeaway order.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=DM+Sans:wght@400;500;600&family=Urbanist:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#F6F0E6;--char:#1E1B18;--red:#E0442B;--sand:#E9DFCF;--mute:#6f675e;--line:rgba(30,27,24,.14);
+--d:'Fraunces',Georgia,serif;--b:'DM Sans','Helvetica Neue',Arial,sans-serif;color-scheme:light}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--cream);color:var(--char);font:400 1.0625rem/1.6 var(--b);-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--d);font-weight:700;margin:0;letter-spacing:-.025em;line-height:1.02}
+h2{font-size:clamp(2.2rem,5vw,4.2rem);max-width:16ch}
+p{margin:0}a{color:inherit}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(20px,4vw,44px)}
+.btn{display:inline-block;background:var(--red);color:#fff;border:0;border-radius:999px;padding:1em 1.7em;font:600 1rem var(--b);cursor:pointer;text-decoration:none;transition:transform .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px -12px rgba(224,68,43,.7)}
+.btn.sm{padding:.65em 1.2em;font-size:.92rem}
+.btn.line{background:none;color:var(--char);box-shadow:inset 0 0 0 1.5px var(--char)}
+.btn.line:hover{background:var(--sand);box-shadow:inset 0 0 0 1.5px var(--char)}
+nav{position:sticky;top:0;z-index:50;background:rgba(246,240,230,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:.55em;text-decoration:none}
+.lm{width:30px;height:30px;border-radius:7px;background:var(--char);color:var(--cream);font:700 .62rem/1 Urbanist,var(--b);display:flex;align-items:flex-end;padding:0 0 4px 4px}
+.lw{font:600 1.5rem/1 Urbanist,var(--b);letter-spacing:-.02em;color:var(--char)}
+.lw em{font-style:normal;color:var(--red)}.lw b{color:var(--red);font-weight:700}
+.sv{margin-left:.5em;padding-left:.9em;border-left:1.5px solid var(--line);font:600 1rem var(--b);color:var(--mute)}
+@media(max-width:520px){.sv{display:none}}
+.logo.sm .lm{width:24px;height:24px;font-size:.5rem;padding:0 0 3px 3px}.logo.sm .lw{font-size:1.15rem}
+.fl{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.links{display:flex;gap:26px;align-items:center}
+.links a:not(.btn){text-decoration:none;font-size:.95rem;color:var(--mute)}.links a:not(.btn):hover{color:var(--char)}
+@media(max-width:720px){.links a:not(.btn){display:none}}
+section{padding:clamp(70px,11vw,140px) 0}
+.hero{padding:clamp(28px,6vh,70px) 0 clamp(50px,8vw,100px)}
+.hero .wrap{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(20px,4vw,60px);align-items:center;min-height:calc(100svh - 120px)}
+.tag{font:600 .8rem var(--b);letter-spacing:.12em;color:var(--red);display:block;margin-bottom:clamp(14px,3vh,26px)}
+.hero h1{font-size:clamp(2.6rem,min(6vw,11vh),5.4rem)}
+.hero .sub{max-width:44ch;font-size:clamp(1.05rem,1.5vw,1.25rem);color:#4a443d;margin:clamp(16px,3vh,28px) 0 clamp(20px,4vh,34px)}
+.row{display:flex;gap:14px;flex-wrap:wrap}
+.art svg{width:100%;height:auto;display:block}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr;min-height:0}.art{max-width:420px}}
+.ring{animation:pulse 2.4s ease-in-out infinite}.ring:nth-of-type(2){animation-delay:.4s}
+@keyframes pulse{0%,100%{opacity:.25}50%{opacity:1}}
+.in{opacity:0;transform:translateY(16px);animation:up .8s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes up{to{opacity:1;transform:none}}
+/* problem */
+.prob{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(30px,6vw,90px);align-items:center}
+.prob .list{display:grid;gap:0;margin-top:30px}
+.prob .it{padding:20px 0;border-top:1px solid var(--line)}
+.prob .it b{font:700 1.25rem var(--d);display:block;margin-bottom:4px}
+.prob .it span{color:var(--mute)}
+@media(max-width:860px){.prob{grid-template-columns:1fr}.prob .art{max-width:300px}}
+/* how */
+.how{background:var(--sand)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,44px);margin-top:clamp(40px,6vw,70px)}
+.step{background:var(--cream);border-radius:14px;padding:clamp(22px,3vw,34px)}
+.step svg{width:56px;height:56px;margin-bottom:34px;display:block}
+.step h3{font-size:1.6rem;margin-bottom:10px}.step p{color:#4a443d}
+@media(max-width:860px){.steps{grid-template-columns:1fr}}
+/* benefits */
+.ben{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(30px,6vw,90px);align-items:center}
+.ben ul{list-style:none;margin:30px 0 0;padding:0}
+.ben li{padding:18px 0 18px 36px;border-top:1px solid var(--line);position:relative;font-size:1.08rem}
+.ben li::before{content:"";position:absolute;left:0;top:1.35em;width:16px;height:9px;border-left:3px solid var(--red);border-bottom:3px solid var(--red);transform:rotate(-45deg) translateY(-4px)}
+.ben li:last-child{border-bottom:1px solid var(--line)}
+@media(max-width:860px){.ben{grid-template-columns:1fr}.ben .art{order:-1;max-width:300px}}
+/* offer */
+.offer{background:var(--char);color:var(--cream)}
+.offer h2{color:var(--cream)}
+.oc{display:grid;grid-template-columns:1fr 1.3fr;gap:clamp(30px,6vw,90px);margin-top:clamp(40px,6vw,70px);align-items:center}
+.card{background:var(--cream);color:var(--char);border-radius:16px;padding:clamp(26px,4vw,48px)}
+.card h3{font-size:1.5rem;margin-bottom:10px}
+.price{font:700 clamp(2.6rem,5vw,4rem)/1 var(--d);letter-spacing:-.03em;color:var(--red)}
+.price small{font:500 1rem var(--b);color:var(--mute);margin-left:.4em;letter-spacing:0}
+.card ul{list-style:none;margin:24px 0;padding:0}
+.card li{padding:12px 0 12px 28px;border-top:1px solid var(--line);position:relative}
+.card li::before{content:"";position:absolute;left:0;top:1.2em;width:10px;height:10px;background:var(--red);border-radius:50%}
+.card .do{color:var(--mute);font-size:.95rem;margin-bottom:24px}.card .do b{color:var(--char)}
+.ph{background:rgba(224,68,43,.12);padding:0 .3em;border-radius:4px}
+@media(max-width:860px){.oc{grid-template-columns:1fr}.oc .art{max-width:280px}}
+/* faq */
+.faq{display:grid;grid-template-columns:1fr 1.6fr;gap:clamp(30px,6vw,90px);align-items:start}
+.faq details{border-bottom:1px solid var(--line)}.faq details:first-child{border-top:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:22px 0;font:700 clamp(1.1rem,1.8vw,1.4rem)/1.25 var(--d);display:flex;justify-content:space-between;gap:20px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--red);font-size:1.6em;line-height:.8;transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{color:#4a443d;padding-bottom:24px;max-width:58ch}
+@media(max-width:860px){.faq{grid-template-columns:1fr}}
+/* final */
+.final{background:var(--red);color:#fff;text-align:center}
+.final h2{color:#fff;margin:0 auto 38px;max-width:14ch;font-size:clamp(2.4rem,7vw,6rem)}
+.final .btn{background:var(--char);font-size:1.1rem}
+footer{padding:28px 0;font-size:.88rem;color:var(--mute)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+/* dialog */
+dialog{background:var(--cream);color:var(--char);border:0;border-radius:16px;padding:0;width:min(500px,calc(100% - 32px))}
+dialog::backdrop{background:rgba(30,27,24,.65)}
+.dlg{padding:clamp(22px,4vw,36px);position:relative}
+.dlg h3{font-size:1.9rem;margin-bottom:8px}.dlg>p{color:var(--mute);margin-bottom:20px;font-size:.95rem}
+.dlg label{display:block;font-size:.88rem;margin-bottom:14px}
+.dlg input{display:block;width:100%;margin-top:6px;background:#fff;color:var(--char);border:1px solid var(--line);border-radius:8px;padding:.8em .9em;font:inherit}
+.dlg .btn{width:100%;margin-top:6px}
+.x{position:absolute;top:10px;right:14px;background:none;border:0;font-size:1.7rem;cursor:pointer;color:var(--mute)}
+.ok{display:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.in{opacity:1;transform:none}.ring{opacity:1}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><a class="logo" href="#top" aria-label="Underctrl home"><span class="lm" aria-hidden="true">ctrl</span><span class="lw">Under<em>ctrl</em><b>.</b></span><span class="sv">OrderLine</span></a>
+<div class="links"><a href="#how">How it works</a><a href="#offer">The offer</a><a href="#faq">FAQ</a><button class="btn sm" data-book>Get More Orders</button></div></div></nav>
+
+<header id="top" class="hero"><div class="wrap">
+<div>
+<span class="tag in">TAKEAWAY CALL ANSWERING FOR RESTAURANTS</span>
+<h1 class="in" style="animation-delay:.1s">Never miss another takeaway order.</h1>
+<p class="sub in" style="animation-delay:.2s">OrderLine gives you a dedicated person who answers every call and takes every order, so your team can focus on the food and the floor.</p>
+<div class="row in" style="animation-delay:.3s"><button class="btn" data-book>Get More Orders</button><a class="btn line" href="#how">See how it works</a></div>
+</div>
+<div class="art in" style="animation-delay:.25s">
+<svg viewBox="0 0 400 440" role="img" aria-label="A ringing phone next to a takeaway order ticket">
+<circle cx="200" cy="225" r="180" fill="#E9DFCF"/>
+<g fill="none" stroke="#E0442B" stroke-width="5" stroke-linecap="round"><path class="ring" d="M88 130q-22 36 0 72"/><path class="ring" d="M66 112q-36 54 0 108"/></g>
+<rect x="108" y="62" width="138" height="262" rx="24" fill="#1E1B18"/>
+<rect x="118" y="80" width="118" height="226" rx="14" fill="#F6F0E6"/>
+<rect x="140" y="110" width="74" height="8" rx="4" fill="#E9DFCF"/><rect x="152" y="126" width="50" height="8" rx="4" fill="#E9DFCF"/>
+<circle cx="177" cy="238" r="30" fill="#E0442B"/>
+<path d="M164 228q-5 5 0 15 10 17 27 24 9 3 14-2l-8-10-8 4q-10-5-15-15l4-8z" fill="#fff"/>
+<g transform="rotate(7 300 250)"><path d="M232 150h138v196l-11.5-9-11.5 9-11.5-9-11.5 9-11.5-9-11.5 9-11.5-9-11.5 9-11.5-9-11.5 9z" fill="#fff" stroke="#1E1B18" stroke-width="3" stroke-linejoin="round"/>
+<text x="248" y="178" font-family="DM Sans,Arial,sans-serif" font-size="12" font-weight="700" fill="#1E1B18">TAKEAWAY</text>
+<rect x="248" y="194" width="86" height="7" rx="3.5" fill="#E9DFCF"/><rect x="248" y="212" width="64" height="7" rx="3.5" fill="#E9DFCF"/><rect x="248" y="230" width="78" height="7" rx="3.5" fill="#E9DFCF"/><rect x="248" y="248" width="52" height="7" rx="3.5" fill="#E9DFCF"/>
+<rect x="248" y="286" width="104" height="2" fill="#1E1B18"/><rect x="248" y="302" width="60" height="10" rx="5" fill="#E0442B"/></g>
+</svg></div>
+</div></header>
+
+<section id="problem" style="border-top:1px solid var(--line)"><div class="wrap prob">
+<div class="art"><svg viewBox="0 0 260 260" role="img" aria-label="A phone showing three missed calls"><circle cx="130" cy="130" r="118" fill="#E9DFCF"/><rect x="78" y="42" width="104" height="176" rx="20" fill="#1E1B18"/><rect x="87" y="58" width="86" height="144" rx="11" fill="#F6F0E6"/><rect x="100" y="84" width="60" height="8" rx="4" fill="#E9DFCF"/><rect x="100" y="104" width="46" height="8" rx="4" fill="#E9DFCF"/><rect x="100" y="124" width="54" height="8" rx="4" fill="#E9DFCF"/><circle cx="178" cy="52" r="24" fill="#E0442B"/><text x="178" y="61" text-anchor="middle" font-family="DM Sans,Arial,sans-serif" font-size="26" font-weight="700" fill="#fff">3</text></svg></div>
+<div><h2>Every missed call is a missed order.</h2>
+<div class="list">
+<div class="it"><b>Calls go unanswered at the rush.</b><span>When the kitchen and floor are flat out, the phone rings out and the customer orders elsewhere.</span></div>
+<div class="it"><b>Busy staff take orders in a hurry.</b><span>Rushed calls lead to mistakes, long waits and unhappy regulars.</span></div>
+<div class="it"><b>A full wage for peak-hour work.</b><span>Hiring someone just to answer the phone is hard to justify when the busy periods are short.</span></div>
+<div class="it"><b>Customers drift to delivery apps.</b><span>If they can’t get through, they order through apps that take a cut of every sale.</span></div>
+</div></div></div></section>
+
+<section class="how" id="how"><div class="wrap">
+<h2>One person. Every call. Every order.</h2>
+<div class="steps">
+<div class="step"><svg viewBox="0 0 56 56" fill="none" stroke="#1E1B18" stroke-width="3" stroke-linejoin="round"><rect x="10" y="6" width="36" height="44" rx="4"/><path d="M18 18h20M18 27h20M18 36h12" stroke="#E0442B" stroke-linecap="round"/></svg><h3>We learn your menu</h3><p>Your dishes, specials, prices, and how you like orders taken, before the first call.</p></div>
+<div class="step"><svg viewBox="0 0 56 56" fill="none" stroke="#1E1B18" stroke-width="3" stroke-linecap="round"><path d="M12 30v-4a16 16 0 0 1 32 0v4"/><rect x="8" y="28" width="9" height="14" rx="3" fill="#E0442B" stroke="#E0442B"/><rect x="39" y="28" width="9" height="14" rx="3" fill="#E0442B" stroke="#E0442B"/><path d="M43 42q0 8-12 8"/></svg><h3>A person answers your phone</h3><p>A dedicated team member picks up every call during the hours you choose and takes the order.</p></div>
+<div class="step"><svg viewBox="0 0 56 56" fill="none" stroke="#1E1B18" stroke-width="3" stroke-linejoin="round"><path d="M12 6h32v44l-5.3-4-5.4 4-5.3-4-5.3 4-5.4-4L12 50z"/><path d="M20 18h16M20 27h16" stroke="#E0442B" stroke-linecap="round"/></svg><h3>Orders reach your kitchen</h3><p>Each order is confirmed with the customer and sent straight into your POS, ready to cook.</p></div>
+</div></div></section>
+
+<section id="benefits"><div class="wrap ben">
+<div class="art"><svg viewBox="0 0 260 260" role="img" aria-label="A takeaway bag"><circle cx="130" cy="130" r="118" fill="#E9DFCF"/><path d="M92 96q0-40 38-40t38 40" fill="none" stroke="#1E1B18" stroke-width="6" stroke-linecap="round"/><path d="M70 96h120l-10 112q-1 8-9 8H89q-8 0-9-8z" fill="#E0442B"/><path d="M74 134h112" stroke="#F6F0E6" stroke-width="5"/><rect x="108" y="150" width="44" height="30" rx="4" fill="#F6F0E6"/><path d="M116 165l9 9 17-18" fill="none" stroke="#1E1B18" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<div><h2>More orders. Less pressure on your team.</h2>
+<ul><li>Every call answered during the hours you choose</li><li>Accurate orders sent straight into your POS</li><li>A reliable person who learns your menu and your regulars</li><li>A cost that’s easier to predict than hiring and covering staff</li></ul></div>
+</div></section>
+
+<section class="offer" id="offer"><div class="wrap">
+<h2>Simple offer. One service.</h2>
+<div class="oc">
+<div class="art"><svg viewBox="0 0 260 260" role="img" aria-label="A team member wearing a headset"><circle cx="130" cy="130" r="118" fill="#E0442B"/><path d="M52 222q0-58 78-58t78 58z" fill="#F6F0E6"/><circle cx="130" cy="110" r="38" fill="#E9DFCF"/><path d="M88 108v-6a42 42 0 0 1 84 0v6" fill="none" stroke="#1E1B18" stroke-width="7" stroke-linecap="round"/><rect x="80" y="104" width="14" height="30" rx="6" fill="#1E1B18"/><rect x="166" y="104" width="14" height="30" rx="6" fill="#1E1B18"/><path d="M172 132q0 22-26 24" fill="none" stroke="#1E1B18" stroke-width="5" stroke-linecap="round"/></svg></div>
+<div class="card"><h3>OrderLine: dedicated takeaway call answering</h3>
+<div class="price">£300<small>per month</small></div>
+<ul><li>A dedicated person answering your phone</li><li>Trained on your menu, specials and regulars</li><li>Calls answered during your peak hours or full opening hours, as you need</li><li>Orders sent straight into your POS</li><li>A replacement arranged if your team member is away</li><li>One point of contact for you</li></ul>
+<p class="do"><b>What you do:</b> share your menu and the hours you want covered. We’ll get orders into your POS.</p>
+<button class="btn" data-book>Get More Orders</button></div>
+</div></div></section>
+
+<section id="faq"><div class="wrap faq">
+<div><h2>Questions owners ask.</h2><div class="art" style="max-width:240px;margin-top:34px"><svg viewBox="0 0 240 200" role="img" aria-label="Two speech bubbles: a question and an answer"><path d="M32 20h118a12 12 0 0 1 12 12v50a12 12 0 0 1-12 12H72l-24 22V94H32a12 12 0 0 1-12-12V32a12 12 0 0 1 12-12z" fill="#E9DFCF"/><text x="91" y="76" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-size="52" font-weight="700" fill="#E0442B">?</text><path d="M132 110h84a12 12 0 0 1 12 12v40a12 12 0 0 1-12 12h-10v20l-22-20h-52a12 12 0 0 1-12-12v-40a12 12 0 0 1 12-12z" fill="#1E1B18"/><path d="M150 144l12 12 24-26" fill="none" stroke="#F6F0E6" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+<div>
+<details><summary>Does the person work in my restaurant?</summary><p>Remote. Your dedicated person answers calls remotely and works as an extension of your team.</p></details>
+<details><summary>How do orders get to my kitchen?</summary><p>Orders arrive directly on your restaurant’s POS.</p></details>
+<details><summary>What if the person is sick or on leave?</summary><p>We arrange a replacement, so your calls are still answered.</p></details>
+<details><summary>How quickly can we start?</summary><p>We aim to have you live within 24 hours.</p></details>
+<details><summary>What does it cost?</summary><p>OrderLine is £300 per month.</p></details>
+</div></div></section>
+
+<section class="final"><div class="wrap"><svg viewBox="0 0 200 150" style="width:170px;height:auto;display:block;margin:0 auto 30px" role="img" aria-label="A restaurant storefront with a striped awning"><rect x="30" y="52" width="140" height="86" fill="#F6F0E6"/><g><rect x="30" y="18" width="20" height="34" fill="#1E1B18"/><rect x="50" y="18" width="20" height="34" fill="#F6F0E6"/><rect x="70" y="18" width="20" height="34" fill="#1E1B18"/><rect x="90" y="18" width="20" height="34" fill="#F6F0E6"/><rect x="110" y="18" width="20" height="34" fill="#1E1B18"/><rect x="130" y="18" width="20" height="34" fill="#F6F0E6"/><rect x="150" y="18" width="20" height="34" fill="#1E1B18"/></g><rect x="40" y="70" width="36" height="34" rx="3" fill="#E9DFCF"/><rect x="124" y="70" width="36" height="34" rx="3" fill="#E9DFCF"/><rect x="86" y="82" width="28" height="56" rx="3" fill="#1E1B18"/><circle cx="108" cy="112" r="2.5" fill="#E0442B"/><rect x="20" y="138" width="160" height="5" rx="2.5" fill="#1E1B18"/></svg><h2>Ready to answer every call?</h2><button class="btn" data-book>Get More Orders</button></div></section>
+<footer><div class="wrap"><span class="fl"><a class="logo sm" href="https://itsunderctrl.com" aria-label="Underctrl"><span class="lm" aria-hidden="true">ctrl</span><span class="lw">Under<em>ctrl</em><b>.</b></span></a><span>© 2026 Underctrl. OrderLine: takeaway call answering for restaurants.</span></span><span><a href="mailto:usama@itsunderctrl.com">usama@itsunderctrl.com</a></span></div></footer>
+
+<dialog id="dlg" aria-labelledby="dh"><button class="x" aria-label="Close" onclick="dlg.close()">×</button>
+<div class="dlg" id="form"><h3 id="dh">Get more orders</h3><p>Tell us about your restaurant and we’ll be in touch.</p>
+<form id="f"><label>Your name<input name="n" required autocomplete="name"></label>
+<label>Restaurant name<input name="r" required></label>
+<label>Phone<input name="p" type="tel" required autocomplete="tel"></label>
+<label>Email<input name="e" type="email" required autocomplete="email"></label>
+<button class="btn" type="submit">Send request</button></form></div>
+<div class="dlg ok" id="ok"><h3>Request received.</h3><p id="okp"></p><button class="btn" onclick="dlg.close()">Close</button></div></dialog>
+<script>
+var dlg=document.getElementById('dlg'),form=document.getElementById('form'),ok=document.getElementById('ok');
+document.querySelectorAll('[data-book]').forEach(function(b){b.addEventListener('click',function(){form.style.display='';ok.style.display='none';dlg.showModal()})});
+dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close()});
+var ENDPOINT='';/* paste your Formspree form URL here, e.g. https://formspree.io/f/xxxx */
+var TO='usama@itsunderctrl.com';
+document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();var fm=this,d={name:fm.n.value,restaurant:fm.r.value,phone:fm.p.value,email:fm.e.value};
+function done(){form.style.display='none';ok.style.display='block';document.getElementById('okp').textContent='Thanks '+d.name.split(' ')[0]+'. We’ll be in touch shortly.';fm.reset()}
+if(ENDPOINT){fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(d)}).then(function(r){if(r.ok)done();else throw 0}).catch(function(){alert('Sorry, something went wrong. Please email '+TO)})}
+else{location.href='mailto:'+TO+'?subject='+encodeURIComponent('OrderLine enquiry from '+d.restaurant)+'&body='+encodeURIComponent('Name: '+d.name+'\nRestaurant: '+d.restaurant+'\nPhone: '+d.phone+'\nEmail: '+d.email);done()}});
+</script>
+</body>
+</html>
